@@ -4,6 +4,8 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import MessagesCtrl from '../component/messages.ctrl'
 import { UserInputProvider, useUserInput } from '../store/user.input'
+import PromptsBlock from '../component/prompts.block'
+import { PromptsAssetContextProvider } from '../store/prompts'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,9 +27,13 @@ export default function Home() {
 }
 
 function GridBlock() {
-  return <div className={styles.grid}>
-
-  </div>
+  return (
+    <div>
+      <PromptsAssetContextProvider>
+        <PromptsBlock />
+      </PromptsAssetContextProvider>
+    </div>
+  )
 }
 const MessagesWindow = () => (
   <div style={{ maxWidth: 320, display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -46,14 +52,16 @@ const Input = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const input = (event.target as any).elements.myInput as HTMLInputElement;
+    // 将输入框的值清空
     onSubmit(input.value);
+    input.value = '';
   }
 
   return (
     <div style={{ display: 'flex', flex: 1, border: '2px solid grey', }}>
-      <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', }}>
+      <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', }} autoComplete="off">
         <input name="myInput" type="text" style={{ display: 'flex', flex: 8 }} />
-        <button style={{ display: 'flex', flex: 2 }} type="submit">提交</button>
+        <button style={{ display: 'flex', flex: 2, textAlign: 'center', justifyContent: 'center', alignItems: 'center' }} type="submit">提交</button>
       </form>
     </div>
   )
@@ -73,7 +81,7 @@ const LeftRight = ({ children }: { children: JSX.Element[] }) => (
   <div style={{ display: 'flex', flex: 1 }}>{children}</div>
 )
 const Left = () => (
-  <div style={{ display: 'flex', flex: 1, border: '2px solid grey', width: 300, height: 300 }}>
+  <div style={{ display: 'flex', flex: 1, border: '2px solid grey', width: 300, height: 300, flexWrap:'wrap'}}>
     <GridBlock />
   </div>
 )

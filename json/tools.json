@@ -1,0 +1,18 @@
+[
+    {
+        "name": "sh",
+        "describe": "shell"
+    },
+    {
+        "name": "npm",
+        "describe": "node package manager"
+    },
+    {
+        "name": "git",
+        "describe": "git"
+    },
+    {
+        "name": "docker",
+        "describe": "docker"
+    }
+]

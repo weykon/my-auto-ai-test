@@ -1,0 +1,26 @@
+[
+    {
+        "download_url": "",
+        "uuid": "0",
+        "name": "think",
+        "content": "#User \n the #User keyword you will receive a text for user input. \n you cosplay three different AI to say three different thinking \n As output, just typing #Think and the thought with markdwon text in three point"
+    },
+    {
+        "download_url": "",
+        "uuid": "1",
+        "name": "action",
+        "content": "#Think \n the #Think keyword you will receive a text for user think. \n you cosplay three different AI to say three different actions \n As output, just typing #Action and the thought with markdwon text in three point"
+    },
+    {
+        "download_url": "",
+        "uuid": "2",
+        "name": "tools",
+        "content": "#Action \n the #Action keyword you will receive a text for user action. \n you cosplay three different AI to say three different tool \n As output, just typing #Tool and the thought with markdwon text in three point"
+    },
+    {
+        "download_url": "",
+        "uuid": "3",
+        "name": "tool",
+        "content": "#Tool \n the #Tool keyword you will receive a text for user tool. "
+    }
+]
